@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Organization Today's Queue List</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 20px 12px;
+  background: #EDEDED;
+  font-family: 'Inter', sans-serif;
+  color: #18181B;
+  -webkit-font-smoothing: antialiased;
+}
+
+.phone-card {
+  width: 100%;
+  max-width: 390px;
+  min-height: 100vh;
+}
+
+h1,h2,h3,p {
+  margin: 0;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.clickable:hover {
+  background: #FAFAFA;
+}
+
+.icon {
+  width: 19px;
+  height: 19px;
+  display: block;
+}
+</style>
+</head>
+
+<body>
+
+<div class="phone-card">
+
+  <div style="
+    background:#FFFFFF;
+    border-radius:14px;
+    padding:20px;
+    border:0.5px solid #E5E7EB;
+  ">
+
+    <!-- Header -->
+    <div style="
+      display:flex;
+      align-items:center;
+      gap:10px;
+      margin-bottom:20px;
+    ">
+
+      <!-- Back -->
+      <button
+        id="backBtn"
+        aria-label="Back"
+        style="
+          width:28px;
+          height:28px;
+          padding:0;
+          border:0;
+          background:transparent;
+          display:flex;
+          align-items:center;
+          justify-content:center;
+        "
+      >
+        <svg class="icon" viewBox="0 0 24 24" fill="none"
+             stroke="#18181B" stroke-width="1.8"
+             stroke-linecap="round" stroke-linejoin="round">
+          <path d="M19 12H5"/>
+          <path d="m12 19-7-7 7-7"/>
+        </svg>
+      </button>
+
+      <p style="
+        font-size:14px;
+        font-weight:500;
+        flex:1;
+      ">
+        Today's queue
+      </p>
+
+      <!-- Add user -->
+      <button
+        id="addUserBtn"
+        aria-label="Add user"
+        style="
+          width:28px;
+          height:28px;
+          padding:0;
+          border:0;
+          background:transparent;
+          display:flex;
+          align-items:center;
+          justify-content:center;
+        "
+      >
+        <svg class="icon" viewBox="0 0 24 24" fill="none"
+             stroke="#0F6E56" stroke-width="1.8"
+             stroke-linecap="round" stroke-linejoin="round">
+          <path d="M15 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+          <circle cx="8.5" cy="7" r="4"/>
+          <path d="M20 8v6"/>
+          <path d="M23 11h-6"/>
+        </svg>
+      </button>
+
+    </div>
+
+    <!-- Now serving -->
+    <div style="
+      background:#E1F5EE;
+      border-radius:12px;
+      padding:14px;
+      margin-bottom:20px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+    ">
+
+      <div>
+        <p style="
+          font-size:11px;
+          color:#0F6E56;
+          margin-bottom:2px;
+        ">
+          Now serving
+        </p>
+
+        <p style="
+          font-size:18px;
+          font-weight:500;
+          color:#04342C;
+        ">
+          Token 010
+        </p>
+      </div>
+
+      <button
+        id="nextBtn"
+        style="
+          background:#085041;
+          color:white;
+          border:none;
+          border-radius:7px;
+          height:32px;
+          font-size:12px;
+          font-weight:500;
+          padding:0 12px;
+        "
+      >
+        Next
+      </button>
+
+    </div>
+
+    <!-- Waiting count -->
+    <p style="
+      font-size:13px;
+      color:#6B7280;
+      margin-bottom:8px;
+    ">
+      15 waiting
+    </p>
+
+    <!-- Queue -->
+    <div style="
+      border:0.5px solid #E5E7EB;
+      border-radius:10px;
+      overflow:hidden;
+    ">
+
+      <!-- 011 -->
+      <div
+        class="clickable"
+        id="user011"
+        style="
+          display:flex;
+          align-items:center;
+          gap:12px;
+          padding:12px;
+          border-bottom:0.5px solid #E5E7EB;
+        "
+      >
+
+        <div style="
+          width:34px;
+          height:34px;
+          border-radius:8px;
+          background:#F0F0F0;
+          display:flex;
+          align-items:center;
+          justify-content:center;
+          font-size:12px;
+          font-weight:500;
+          flex-shrink:0;
+        ">
+          011
+        </div>
+
+        <div style="flex:1; min-width:0;">
+          <p style="
+            font-size:14px;
+            font-weight:500;
+          ">
+            Rahul Sharma
+          </p>
+
+          <p style="
+            font-size:12px;
+            color:#6B7280;
+          ">
+            Joined 9:12 AM
+          </p>
+        </div>
+
+        <span style="
+          font-size:11px;
+          color:#0F6E56;
+          background:#E1F5EE;
+          padding:2px 8px;
+          border-radius:10px;
+          white-space:nowrap;
+        ">
+          Up next
+        </span>
+
+      </div>
+
+      <!-- 012 -->
+      <div
+        class="clickable"
+        id="user012"
+        style="
+          display:flex;
+          align-items:center;
+          gap:12px;
+          padding:12px;
+          border-bottom:0.5px solid #E5E7EB;
+        "
+      >
+
+        <div style="
+          width:34px;
+          height:34px;
+          border-radius:8px;
+          background:#F0F0F0;
+          display:flex;
+          align-items:center;
+          justify-content:center;
+          font-size:12px;
+          font-weight:500;
+          flex-shrink:0;
+        ">
+          012
+        </div>
+
+        <div style="flex:1; min-width:0;">
+          <p style="
+            font-size:14px;
+            font-weight:500;
+          ">
+            Priya Nair
+          </p>
+
+          <p style="
+            font-size:12px;
+            color:#6B7280;
+          ">
+            Joined 9:15 AM
+          </p>
+        </div>
+
+        <span style="
+          font-size:11px;
+          color:#6B7280;
+          background:#F0F0F0;
+          padding:2px 8px;
+          border-radius:10px;
+          white-space:nowrap;
+        ">
+          Waiting
+        </span>
+
+      </div>
+
+      <!-- 013 -->
+      <div
+        class="clickable"
+        id="user013"
+        style="
+          display:flex;
+          align-items:center;
+          gap:12px;
+          padding:12px;
+          border-bottom:0.5px solid #E5E7EB;
+        "
+      >
+
+        <div style="
+          width:34px;
+          height:34px;
+          border-radius:8px;
+          background:#F0F0F0;
+          display:flex;
+          align-items:center;
+          justify-content:center;
+          font-size:12px;
+          font-weight:500;
+          flex-shrink:0;
+        ">
+          013
+        </div>
+
+        <div style="flex:1; min-width:0;">
+          <p style="
+            font-size:14px;
+            font-weight:500;
+          ">
+            Aarav Mehta
+          </p>
+
+          <p style="
+            font-size:12px;
+            color:#6B7280;
+          ">
+            Joined 9:18 AM
+          </p>
+        </div>
+
+        <span style="
+          font-size:11px;
+          color:#6B7280;
+          background:#F0F0F0;
+          padding:2px 8px;
+          border-radius:10px;
+          white-space:nowrap;
+        ">
+          Waiting
+        </span>
+
+      </div>
+
+      <!-- 014 -->
+      <div
+        class="clickable"
+        id="user014"
+        style="
+          display:flex;
+          align-items:center;
+          gap:12px;
+          padding:12px;
+          border-bottom:0.5px solid #E5E7EB;
+        "
+      >
+
+        <div style="
+          width:34px;
+          height:34px;
+          border-radius:8px;
+          background:#F0F0F0;
+          display:flex;
+          align-items:center;
+          justify-content:center;
+          font-size:12px;
+          font-weight:500;
+          flex-shrink:0;
+        ">
+          014
+        </div>
+
+        <div style="flex:1; min-width:0;">
+          <p style="
+            font-size:14px;
+            font-weight:500;
+          ">
+            Sara Khan
+          </p>
+
+          <p style="
+            font-size:12px;
+            color:#6B7280;
+          ">
+            Joined 9:20 AM
+          </p>
+        </div>
+
+        <span style="
+          font-size:11px;
+          color:#854F0B;
+          background:#FAEEDA;
+          padding:2px 8px;
+          border-radius:10px;
+          white-space:nowrap;
+        ">
+          Skipped
+        </span>
+
+      </div>
+
+      <!-- 015 -->
+      <div
+        class="clickable"
+        id="user015"
+        style="
+          display:flex;
+          align-items:center;
+          gap:12px;
+          padding:12px;
+        "
+      >
+
+        <div style="
+          width:34px;
+          height:34px;
+          border-radius:8px;
+          background:#F0F0F0;
+          display:flex;
+          align-items:center;
+          justify-content:center;
+          font-size:12px;
+          font-weight:500;
+          flex-shrink:0;
+        ">
+          015
+        </div>
+
+        <div style="flex:1; min-width:0;">
+          <p style="
+            font-size:14px;
+            font-weight:500;
+          ">
+            Karan Verma
+          </p>
+
+          <p style="
+            font-size:12px;
+            color:#6B7280;
+          ">
+            Joined 9:22 AM
+          </p>
+        </div>
+
+        <span style="
+          font-size:11px;
+          color:#6B7280;
+          background:#F0F0F0;
+          padding:2px 8px;
+          border-radius:10px;
+          white-space:nowrap;
+        ">
+          Waiting
+        </span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+document.getElementById("backBtn").addEventListener("click", function () {
+  window.location.href = "07-organization-dashboard.html";
+});
+
+document.getElementById("addUserBtn").addEventListener("click", function () {
+  alert("Add user flow can be connected here.");
+});
+
+document.getElementById("nextBtn").addEventListener("click", function () {
+  alert("Next token action can be connected here.");
+});
+
+document.getElementById("user013").addEventListener("click", function () {
+  window.location.href = "09-organization-user-detail.html";
+});
+</script>
+
+</body>
+</html>

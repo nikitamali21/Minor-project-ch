@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>User Search Organization</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+* { box-sizing:border-box; }
+
+body{
+  margin:0;
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  padding:20px 12px;
+  background:#EDEDED;
+  font-family:'Inter',sans-serif;
+  color:#18181B;
+  -webkit-font-smoothing:antialiased;
+}
+
+.phone-card{
+  width:100%;
+  max-width:390px;
+  min-height:100vh;
+}
+
+.card{
+  background:#FFFFFF;
+  border-radius:14px;
+  padding:20px;
+  border:0.5px solid #E5E7EB;
+  min-height:calc(100vh - 40px);
+}
+
+p{margin:0;}
+
+input{
+  border:1px solid #E5E7EB;
+  border-radius:8px;
+  padding:11px 12px;
+  font-size:14px;
+  font-family:inherit;
+  width:100%;
+  background:#fff;
+  color:#18181B;
+  outline:none;
+}
+
+input::placeholder{
+  color:#9CA3AF;
+}
+
+.clickable{
+  cursor:pointer;
+}
+
+svg{
+  display:block;
+  flex-shrink:0;
+}
+
+.filters{
+  display:flex;
+  gap:8px;
+  margin-bottom:20px;
+  overflow-x:auto;
+  scrollbar-width:none;
+}
+
+.filters::-webkit-scrollbar{
+  display:none;
+}
+
+.filter{
+  font-size:12px;
+  padding:6px 12px;
+  border-radius:20px;
+  white-space:nowrap;
+  cursor:pointer;
+}
+
+.filter.active{
+  font-weight:500;
+  background:#085041;
+  color:white;
+}
+
+.filter:not(.active){
+  border:0.5px solid #E5E7EB;
+  color:#6B7280;
+}
+</style>
+</head>
+
+<body>
+
+<div class="phone-card">
+<div class="card">
+
+  <!-- Header -->
+  <div class="clickable"
+       onclick="go('11-user-dashboard.html')"
+       style="display:flex;align-items:center;gap:10px;margin-bottom:20px;">
+
+    <svg width="19" height="19" viewBox="0 0 24 24"
+         fill="none" stroke="#18181B" stroke-width="2"
+         stroke-linecap="round" stroke-linejoin="round">
+      <path d="m15 18-6-6 6-6"/>
+    </svg>
+
+    <p style="font-size:14px;font-weight:500;">
+      Search organizations
+    </p>
+
+  </div>
+
+
+  <!-- Search -->
+  <div style="position:relative;margin-bottom:16px;">
+
+    <svg width="17" height="17" viewBox="0 0 24 24"
+         fill="none" stroke="#9CA3AF" stroke-width="2"
+         stroke-linecap="round" stroke-linejoin="round"
+         style="position:absolute;left:12px;top:50%;transform:translateY(-50%);">
+      <circle cx="11" cy="11" r="7"/>
+      <path d="m20 20-4-4"/>
+    </svg>
+
+    <input
+      id="searchInput"
+      type="text"
+      value="City"
+      style="padding-left:36px;"
+    >
+
+  </div>
+
+
+  <!-- Filters -->
+  <div class="filters">
+
+    <span class="filter active" data-filter="all">
+      All
+    </span>
+
+    <span class="filter" data-filter="healthcare">
+      Healthcare
+    </span>
+
+    <span class="filter" data-filter="banking">
+      Banking
+    </span>
+
+    <span class="filter" data-filter="salon">
+      Salon
+    </span>
+
+  </div>
+
+
+  <p id="resultCount"
+     style="font-size:13px;color:#6B7280;margin-bottom:8px;">
+    2 results
+  </p>
+
+
+  <!-- Results -->
+  <div style="border:0.5px solid #E5E7EB;border-radius:10px;overflow:hidden;">
+
+    <!-- CityCare Hospital -->
+    <div class="org clickable"
+         data-category="healthcare"
+         data-search="citycare hospital healthcare"
+         onclick="go('13-user-organization-details.html')"
+         style="display:flex;align-items:center;gap:12px;padding:12px;border-bottom:0.5px solid #E5E7EB;">
+
+      <div style="width:38px;height:38px;border-radius:10px;background:#FAECE7;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:500;color:#712B13;flex-shrink:0;">
+        CC
+      </div>
+
+      <div style="flex:1;min-width:0;">
+        <p style="font-size:14px;font-weight:500;">
+          CityCare Hospital
+        </p>
+
+        <p style="font-size:12px;color:#6B7280;">
+          Healthcare - 0.8 mi
+        </p>
+      </div>
+
+      <span style="font-size:11px;color:#0F6E56;background:#E1F5EE;padding:2px 8px;border-radius:10px;white-space:nowrap;">
+        15 waiting
+      </span>
+
+    </div>
+
+
+    <!-- Springfield City Bank -->
+    <div class="org clickable"
+         data-category="banking"
+         data-search="springfield city bank banking"
+         onclick="go('13-user-organization-details.html')"
+         style="display:flex;align-items:center;gap:12px;padding:12px;">
+
+      <div style="width:38px;height:38px;border-radius:10px;background:#E6F1FB;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:500;color:#0C447C;flex-shrink:0;">
+        SB
+      </div>
+
+      <div style="flex:1;min-width:0;">
+        <p style="font-size:14px;font-weight:500;">
+          Springfield City Bank
+        </p>
+
+        <p style="font-size:12px;color:#6B7280;">
+          Banking - 1.4 mi
+        </p>
+      </div>
+
+      <span style="font-size:11px;color:#6B7280;background:#F0F0F0;padding:2px 8px;border-radius:10px;white-space:nowrap;">
+        4 waiting
+      </span>
+
+    </div>
+
+  </div>
+
+</div>
+</div>
+
+
+<script>
+function go(page){
+  window.location.href = page;
+}
+
+const input = document.getElementById("searchInput");
+const filters = document.querySelectorAll(".filter");
+const organizations = document.querySelectorAll(".org");
+const resultCount = document.getElementById("resultCount");
+
+let activeFilter = "all";
+
+function updateResults(){
+
+  const query = input.value.toLowerCase().trim();
+  let count = 0;
+
+  organizations.forEach(org => {
+
+    const category = org.dataset.category;
+    const searchText = org.dataset.search;
+
+    const matchesSearch =
+      query === "" || searchText.includes(query);
+
+    const matchesFilter =
+      activeFilter === "all" ||
+      category === activeFilter;
+
+    if(matchesSearch && matchesFilter){
+      org.style.display = "flex";
+      count++;
+    }else{
+      org.style.display = "none";
+    }
+
+  });
+
+  resultCount.textContent =
+    count + (count === 1 ? " result" : " results");
+}
+
+filters.forEach(filter => {
+
+  filter.addEventListener("click", function(){
+
+    filters.forEach(f => f.classList.remove("active"));
+    this.classList.add("active");
+
+    activeFilter = this.dataset.filter;
+
+    updateResults();
+
+  });
+
+});
+
+input.addEventListener("input", updateResults);
+
+updateResults();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Organization User Detail - Token 013</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 20px 12px;
+  background: #EDEDED;
+  font-family: 'Inter', sans-serif;
+  color: #18181B;
+  -webkit-font-smoothing: antialiased;
+}
+
+.phone-card {
+  width: 100%;
+  max-width: 390px;
+  min-height: 100vh;
+}
+
+h1, h2, h3, p {
+  margin: 0;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.icon {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+</style>
+</head>
+
+<body>
+
+<div class="phone-card">
+
+  <div style="
+    background:#FFFFFF;
+    border-radius:14px;
+    padding:20px;
+    border:0.5px solid #E5E7EB;
+  ">
+
+    <!-- Header -->
+    <div style="
+      display:flex;
+      align-items:center;
+      gap:10px;
+      margin-bottom:24px;
+    ">
+
+      <button
+        id="backBtn"
+        aria-label="Back"
+        style="
+          width:28px;
+          height:28px;
+          padding:0;
+          border:0;
+          background:transparent;
+          display:flex;
+          align-items:center;
+          justify-content:center;
+        "
+      >
+        <svg class="icon" viewBox="0 0 24 24" fill="none"
+             stroke="#18181B" stroke-width="1.8"
+             stroke-linecap="round" stroke-linejoin="round">
+          <path d="M19 12H5"/>
+          <path d="m12 19-7-7 7-7"/>
+        </svg>
+      </button>
+
+      <p style="
+        font-size:14px;
+        font-weight:500;
+      ">
+        User detail
+      </p>
+
+    </div>
+
+    <!-- User information -->
+    <div style="
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      margin-bottom:24px;
+    ">
+
+      <div style="
+        width:56px;
+        height:56px;
+        border-radius:50%;
+        background:#F0F0F0;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        font-size:18px;
+        font-weight:500;
+        margin-bottom:10px;
+      ">
+        AM
+      </div>
+
+      <p style="
+        font-size:16px;
+        font-weight:500;
+      ">
+        Aarav Mehta
+      </p>
+
+      <p style="
+        font-size:13px;
+        color:#6B7280;
+        margin-top:2px;
+      ">
+        Joined at 9:18 AM
+      </p>
+
+    </div>
+
+    <!-- Token -->
+    <div style="
+      background:#E1F5EE;
+      border-radius:12px;
+      padding:20px;
+      margin-bottom:24px;
+      text-align:center;
+    ">
+
+      <p style="
+        font-size:12px;
+        color:#0F6E56;
+        margin-bottom:4px;
+      ">
+        Token number
+      </p>
+
+      <p style="
+        font-size:32px;
+        font-weight:500;
+        color:#04342C;
+      ">
+        013
+      </p>
+
+    </div>
+
+    <!-- Position / Status -->
+    <div style="
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:12px;
+      margin-bottom:24px;
+    ">
+
+      <div style="
+        background:#EDEDED;
+        border-radius:10px;
+        padding:16px;
+      ">
+
+        <p style="
+          font-size:13px;
+          color:#6B7280;
+          margin-bottom:4px;
+        ">
+          Position
+        </p>
+
+        <p style="
+          font-size:24px;
+          font-weight:500;
+        ">
+          3rd
+        </p>
+
+      </div>
+
+      <div style="
+        background:#EDEDED;
+        border-radius:10px;
+        padding:16px;
+      ">
+
+        <p style="
+          font-size:13px;
+          color:#6B7280;
+          margin-bottom:4px;
+        ">
+          Status
+        </p>
+
+        <p style="
+          font-size:15px;
+          font-weight:500;
+          padding-top:6px;
+          color:#6B7280;
+        ">
+          Waiting
+        </p>
+
+      </div>
+
+    </div>
+
+    <!-- Contact -->
+    <p style="
+      font-size:13px;
+      color:#6B7280;
+      margin-bottom:8px;
+    ">
+      Contact
+    </p>
+
+    <div style="
+      border:0.5px solid #E5E7EB;
+      border-radius:10px;
+      overflow:hidden;
+      margin-bottom:24px;
+    ">
+
+      <!-- Phone -->
+      <div style="
+        display:flex;
+        align-items:center;
+        gap:12px;
+        padding:12px;
+        border-bottom:0.5px solid #E5E7EB;
+      ">
+
+        <svg class="icon" viewBox="0 0 24 24" fill="none"
+             stroke="#6B7280" stroke-width="1.8"
+             stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2
+                   19.79 19.79 0 0 1-8.63-3.07
+                   19.5 19.5 0 0 1-6-6
+                   19.79 19.79 0 0 1-3.07-8.67
+                   A2 2 0 0 1 4.11 2h3a2 2 0 0 1
+                   2 1.72 12.84 12.84 0 0 0 .7 2.81
+                   2 2 0 0 1-.45 2.11L8.09 9.91
+                   a16 16 0 0 0 6 6l1.27-1.27
+                   a2 2 0 0 1 2.11-.45
+                   12.84 12.84 0 0 0 2.81.7
+                   A2 2 0 0 1 22 16.92z"/>
+        </svg>
+
+        <p style="font-size:13px;">
+          +1 (415) 555-0184
+        </p>
+
+      </div>
+
+      <!-- Email -->
+      <div style="
+        display:flex;
+        align-items:center;
+        gap:12px;
+        padding:12px;
+      ">
+
+        <svg class="icon" viewBox="0 0 24 24" fill="none"
+             stroke="#6B7280" stroke-width="1.8"
+             stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="5" width="18" height="14" rx="2"/>
+          <path d="m3 7 9 6 9-6"/>
+        </svg>
+
+        <p style="font-size:13px;">
+          aarav.mehta@email.com
+        </p>
+
+      </div>
+
+    </div>
+
+    <!-- Skip -->
+    <button
+      id="skipBtn"
+      style="
+        width:100%;
+        height:44px;
+        font-size:15px;
+        font-weight:500;
+        margin-bottom:10px;
+        border:1px solid #E5E7EB;
+        border-radius:8px;
+        background:#FFFFFF;
+        color:#18181B;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        gap:6px;
+      "
+    >
+
+      <svg class="icon" viewBox="0 0 24 24" fill="none"
+           stroke="#18181B" stroke-width="1.8"
+           stroke-linecap="round" stroke-linejoin="round">
+        <path d="m13 17 5-5-5-5"/>
+        <path d="M6 17V7"/>
+        <path d="M18 12H6"/>
+      </svg>
+
+      Skip user
+
+    </button>
+
+    <!-- Remove -->
+    <button
+      id="removeBtn"
+      style="
+        width:100%;
+        height:44px;
+        font-size:15px;
+        font-weight:500;
+        border:1px solid #F09595;
+        border-radius:8px;
+        background:#FFFFFF;
+        color:#791F1F;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        gap:6px;
+      "
+    >
+
+      <svg class="icon" viewBox="0 0 24 24" fill="none"
+           stroke="#791F1F" stroke-width="1.8"
+           stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 6h18"/>
+        <path d="M8 6V4h8v2"/>
+        <path d="M19 6l-1 15H6L5 6"/>
+        <path d="M10 11v6"/>
+        <path d="M14 11v6"/>
+      </svg>
+
+      Remove from queue
+
+    </button>
+
+  </div>
+
+</div>
+
+<script>
+document.getElementById("backBtn").addEventListener("click", function () {
+  window.location.href = "08-organization-todays-queue.html";
+});
+
+document.getElementById("skipBtn").addEventListener("click", function () {
+  const confirmed = confirm("Skip Aarav Mehta from the queue?");
+  if (confirmed) {
+    alert("User skipped successfully.");
+  }
+});
+
+document.getElementById("removeBtn").addEventListener("click", function () {
+  const confirmed = confirm("Remove Aarav Mehta from the queue?");
+  if (confirmed) {
+    window.location.href = "08-organization-todays-queue.html";
+  }
+});
+</script>
+
+</body>
+</html>

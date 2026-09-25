@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>User Token Generated</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  padding:20px 12px;
+  background:#EDEDED;
+  font-family:'Inter',sans-serif;
+  color:#18181B;
+  -webkit-font-smoothing:antialiased;
+}
+
+.phone-card{
+  width:100%;
+  max-width:390px;
+  min-height:100vh;
+}
+
+.card{
+  background:#fff;
+  border-radius:14px;
+  padding:20px;
+  border:0.5px solid #E5E7EB;
+  min-height:calc(100vh - 40px);
+}
+
+p{margin:0}
+
+svg{
+  display:block;
+  flex-shrink:0;
+}
+
+button{
+  width:100%;
+  font-family:inherit;
+  cursor:pointer;
+  border-radius:8px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="phone-card">
+<div class="card">
+
+  <!-- Close -->
+  <div
+    onclick="go('11-user-dashboard.html')"
+    style="display:flex;align-items:center;margin-bottom:24px;cursor:pointer;">
+
+    <svg width="19" height="19" viewBox="0 0 24 24"
+         fill="none"
+         stroke="#18181B"
+         stroke-width="2"
+         stroke-linecap="round"
+         stroke-linejoin="round">
+      <path d="M18 6 6 18"/>
+      <path d="m6 6 12 12"/>
+    </svg>
+
+  </div>
+
+
+  <!-- Success -->
+  <div
+    style="
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      margin-bottom:24px;">
+
+    <div
+      style="
+        width:56px;
+        height:56px;
+        border-radius:50%;
+        background:#E1F5EE;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        margin-bottom:14px;">
+
+      <svg width="28" height="28" viewBox="0 0 24 24"
+           fill="none"
+           stroke="#085041"
+           stroke-width="2.5"
+           stroke-linecap="round"
+           stroke-linejoin="round">
+        <path d="m5 12 4 4L19 6"/>
+      </svg>
+
+    </div>
+
+    <p style="font-size:16px;font-weight:500;">
+      You're in the queue
+    </p>
+
+    <p style="font-size:13px;color:#6B7280;margin-top:4px;">
+      Springfield City Bank
+    </p>
+
+  </div>
+
+
+  <!-- Token -->
+  <div
+    style="
+      background:#E1F5EE;
+      border-radius:12px;
+      padding:24px;
+      margin-bottom:20px;
+      text-align:center;">
+
+    <p
+      style="
+        font-size:12px;
+        color:#0F6E56;
+        margin-bottom:6px;">
+      Your token number
+    </p>
+
+    <p
+      style="
+        font-size:44px;
+        font-weight:600;
+        color:#04342C;">
+      005
+    </p>
+
+  </div>
+
+
+  <!-- Stats -->
+  <div
+    style="
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:12px;
+      margin-bottom:24px;">
+
+    <div
+      style="
+        background:#EDEDED;
+        border-radius:10px;
+        padding:16px;">
+
+      <p
+        style="
+          font-size:13px;
+          color:#6B7280;
+          margin-bottom:4px;">
+        Position
+      </p>
+
+      <p
+        style="
+          font-size:24px;
+          font-weight:500;">
+        5th
+      </p>
+
+    </div>
+
+
+    <div
+      style="
+        background:#EDEDED;
+        border-radius:10px;
+        padding:16px;">
+
+      <p
+        style="
+          font-size:13px;
+          color:#6B7280;
+          margin-bottom:4px;">
+        Est. wait
+      </p>
+
+      <p
+        style="
+          font-size:24px;
+          font-weight:500;">
+        15 min
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <!-- Notification -->
+  <div
+    style="
+      display:flex;
+      gap:10px;
+      padding:12px;
+      background:#EDEDED;
+      border-radius:10px;
+      margin-bottom:24px;">
+
+    <svg width="18" height="18" viewBox="0 0 24 24"
+         fill="none"
+         stroke="#854F0B"
+         stroke-width="2"
+         stroke-linecap="round"
+         stroke-linejoin="round">
+
+      <path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"/>
+      <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+
+    </svg>
+
+    <p
+      style="
+        font-size:13px;
+        color:#6B7280;">
+      We'll notify you when you're 5 tokens away, so you don't need to keep checking.
+    </p>
+
+  </div>
+
+
+  <!-- Live status -->
+  <button
+    onclick="go('14-user-queue-status.html')"
+    style="
+      background:#0F6E56;
+      color:white;
+      border:none;
+      height:48px;
+      font-size:15px;
+      font-weight:500;
+      margin-bottom:10px;">
+    View live queue status
+  </button>
+
+
+  <!-- Dashboard -->
+  <button
+    onclick="go('11-user-dashboard.html')"
+    style="
+      background:#fff;
+      color:#18181B;
+      border:1px solid #E5E7EB;
+      height:44px;
+      font-size:15px;
+      font-weight:500;">
+    Back to dashboard
+  </button>
+
+</div>
+</div>
+
+
+<script>
+function go(page){
+  window.location.href = page;
+}
+</script>
+
+</body>
+</html>

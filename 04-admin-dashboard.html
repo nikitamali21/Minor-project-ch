@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Smart Queue - Admin Dashboard</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: #FFFFFF;
+    font-family: 'Inter', sans-serif;
+    color: #18181B;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.phone-card {
+    width: 100%;
+    max-width: 390px;
+    min-height: 100vh;
+    background: #FFFFFF;
+    border-radius: 14px;
+    border: 1px solid #E5E7EB;
+    padding: 24px;
+}
+
+h1, h2, h3, p {
+    margin: 0;
+}
+
+h2 {
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 26px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.brand-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: #E1F5EE;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.brand-icon svg {
+    width: 19px;
+    height: 19px;
+    stroke: #085041;
+    stroke-width: 2;
+    fill: none;
+}
+
+.brand-name {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.brand-role {
+    font-size: 12px;
+    color: #6B7280;
+    margin-top: 2px;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.bell {
+    position: relative;
+    cursor: pointer;
+}
+
+.bell svg {
+    width: 20px;
+    height: 20px;
+    stroke: #18181B;
+    stroke-width: 2;
+    fill: none;
+}
+
+.notification-dot {
+    position: absolute;
+    top: -3px;
+    right: -4px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #D85A30;
+}
+
+.avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #F0F0F0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.welcome {
+    margin-bottom: 22px;
+}
+
+.welcome p {
+    font-size: 14px;
+    color: #6B7280;
+    margin-top: 4px;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-bottom: 26px;
+}
+
+.stat-card {
+    background: #EDEDED;
+    border-radius: 10px;
+    padding: 16px;
+}
+
+.stat-label {
+    font-size: 13px;
+    color: #6B7280;
+    margin-bottom: 4px;
+}
+
+.stat-number {
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.section-label {
+    font-size: 13px;
+    color: #6B7280;
+    margin-bottom: 8px;
+}
+
+.menu {
+    border: 1px solid #E5E7EB;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 26px;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 13px 12px;
+    cursor: pointer;
+    border-bottom: 1px solid #E5E7EB;
+}
+
+.menu-item:last-child {
+    border-bottom: none;
+}
+
+.menu-icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.menu-icon svg {
+    width: 18px;
+    height: 18px;
+    fill: none;
+    stroke-width: 2;
+}
+
+.green {
+    background: #E1F5EE;
+}
+
+.green svg {
+    stroke: #085041;
+}
+
+.yellow {
+    background: #FAEEDA;
+}
+
+.yellow svg {
+    stroke: #854F0B;
+}
+
+.gray {
+    background: #F0F0F0;
+}
+
+.gray svg {
+    stroke: #6B7280;
+}
+
+.menu-text {
+    flex: 1;
+}
+
+.menu-title {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.menu-description {
+    font-size: 12px;
+    color: #6B7280;
+    margin-top: 2px;
+}
+
+.chevron {
+    width: 16px;
+    height: 16px;
+    stroke: #9CA3AF;
+    stroke-width: 2;
+    fill: none;
+}
+
+.recent-label {
+    font-size: 13px;
+    color: #6B7280;
+    margin-bottom: 8px;
+}
+
+.organizations {
+    border: 1px solid #E5E7EB;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.organization {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    border-bottom: 1px solid #E5E7EB;
+    cursor: pointer;
+}
+
+.organization:last-child {
+    border-bottom: none;
+}
+
+.org-avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 500;
+    flex-shrink: 0;
+}
+
+.cc {
+    background: #FAECE7;
+    color: #712B13;
+}
+
+.ub {
+    background: #E6F1FB;
+    color: #0C447C;
+}
+
+.org-name {
+    font-size: 13px;
+    flex: 1;
+}
+
+.status {
+    font-size: 11px;
+    color: #0F6E56;
+    background: #E1F5EE;
+    padding: 3px 8px;
+    border-radius: 10px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="phone-card">
+
+    <!-- HEADER -->
+    <div class="header">
+
+        <div class="brand">
+
+            <div class="brand-icon">
+                <svg viewBox="0 0 24 24">
+                    <path d="M4 5h16"></path>
+                    <path d="M4 9h10"></path>
+                    <path d="M4 13h16"></path>
+                    <path d="M4 17h10"></path>
+                </svg>
+            </div>
+
+            <div>
+                <p class="brand-name">Smart queue</p>
+                <p class="brand-role">Admin</p>
+            </div>
+
+        </div>
+
+        <div class="header-actions">
+
+            <div class="bell" id="notifications">
+                <svg viewBox="0 0 24 24">
+                    <path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"></path>
+                    <path d="M10 21h4"></path>
+                </svg>
+                <span class="notification-dot"></span>
+            </div>
+
+            <div class="avatar" id="profile">
+                A
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- WELCOME -->
+    <div class="welcome">
+
+        <h2>Welcome back</h2>
+
+        <p>
+            Here's what's on the platform today.
+        </p>
+
+    </div>
+
+
+    <!-- STATS -->
+    <div class="stats">
+
+        <div class="stat-card">
+            <p class="stat-label">Organizations</p>
+            <p class="stat-number">18</p>
+        </div>
+
+        <div class="stat-card">
+            <p class="stat-label">Active today</p>
+            <p class="stat-number">12</p>
+        </div>
+
+    </div>
+
+
+    <!-- MANAGE -->
+    <p class="section-label">
+        Manage
+    </p>
+
+    <div class="menu">
+
+        <!-- Organizations -->
+        <div class="menu-item" id="organizations">
+
+            <div class="menu-icon green">
+                <svg viewBox="0 0 24 24">
+                    <path d="M3 21h18"></path>
+                    <path d="M5 21V5h14v16"></path>
+                    <path d="M8 8h2"></path>
+                    <path d="M14 8h2"></path>
+                    <path d="M8 12h2"></path>
+                    <path d="M14 12h2"></path>
+                    <path d="M10 21v-5h4v5"></path>
+                </svg>
+            </div>
+
+            <div class="menu-text">
+                <p class="menu-title">Organizations</p>
+                <p class="menu-description">View, add, remove</p>
+            </div>
+
+            <svg class="chevron" viewBox="0 0 24 24">
+                <path d="M9 6l6 6-6 6"></path>
+            </svg>
+
+        </div>
+
+
+        <!-- Notifications -->
+        <div class="menu-item" id="notification-menu">
+
+            <div class="menu-icon yellow">
+                <svg viewBox="0 0 24 24">
+                    <path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"></path>
+                    <path d="M10 21h4"></path>
+                </svg>
+            </div>
+
+            <div class="menu-text">
+                <p class="menu-title">Notifications</p>
+                <p class="menu-description">System alerts</p>
+            </div>
+
+            <svg class="chevron" viewBox="0 0 24 24">
+                <path d="M9 6l6 6-6 6"></path>
+            </svg>
+
+        </div>
+
+
+        <!-- Profile -->
+        <div class="menu-item" id="profile-menu">
+
+            <div class="menu-icon gray">
+                <svg viewBox="0 0 24 24">
+                    <circle cx="12" cy="8" r="3.5"></circle>
+                    <path d="M5 20c0-4 3-6 7-6s7 2 7 6"></path>
+                </svg>
+            </div>
+
+            <div class="menu-text">
+                <p class="menu-title">Profile</p>
+                <p class="menu-description">Account settings</p>
+            </div>
+
+            <svg class="chevron" viewBox="0 0 24 24">
+                <path d="M9 6l6 6-6 6"></path>
+            </svg>
+
+        </div>
+
+    </div>
+
+
+    <!-- RECENTLY ADDED -->
+    <p class="recent-label">
+        Recently added
+    </p>
+
+    <div class="organizations">
+
+        <!-- CityCare -->
+        <div class="organization" id="citycare">
+
+            <div class="org-avatar cc">
+                CC
+            </div>
+
+            <p class="org-name">
+                CityCare Hospital
+            </p>
+
+            <span class="status">
+                Active
+            </span>
+
+        </div>
+
+
+        <!-- Union Bank -->
+        <div class="organization" id="unionbank">
+
+            <div class="org-avatar ub">
+                UB
+            </div>
+
+            <p class="org-name">
+                Union Bank
+            </p>
+
+            <span class="status">
+                Active
+            </span>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+document.getElementById("notifications").onclick = function() {
+    window.location.href = "17-admin-notifications.html";
+};
+
+document.getElementById("profile").onclick = function() {
+    window.location.href = "20-admin-profile.html";
+};
+
+document.getElementById("organizations").onclick = function() {
+    window.location.href = "05-admin-organizations-search.html";
+};
+
+document.getElementById("notification-menu").onclick = function() {
+    window.location.href = "17-admin-notifications.html";
+};
+
+document.getElementById("profile-menu").onclick = function() {
+    window.location.href = "20-admin-profile.html";
+};
+
+document.getElementById("citycare").onclick = function() {
+    window.location.href = "06-admin-organization-details.html";
+};
+
+document.getElementById("unionbank").onclick = function() {
+    window.location.href = "06-admin-organization-details.html";
+};
+
+</script>
+
+</body>
+</html>

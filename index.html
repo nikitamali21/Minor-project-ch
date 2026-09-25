@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Smart Queue - Digital Queue Management Platform</title>
+<meta name="description" content="Smart Queue is a digital queue management platform that lets organizations like hospitals, banks, and salons manage their queues online, while users join and track queues remotely without standing in line.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/dist/tabler-icons.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; }
+body { margin:0; font-family:'Inter',sans-serif; color:#18181B; background:#FFFFFF; -webkit-font-smoothing:antialiased; }
+.wrap { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+header { padding: 20px 0; display: flex; align-items: center; justify-content: space-between; border-bottom: 0.5px solid #E5E7EB; }
+.brand { display: flex; align-items: center; gap: 10px; font-weight: 600; font-size: 17px; }
+.brand .icon { width: 36px; height: 36px; border-radius: 10px; background: #E1F5EE; display:flex; align-items:center; justify-content:center; }
+.brand .icon i { font-size: 18px; color: #085041; }
+nav a { color: #6B7280; text-decoration: none; font-size: 14px; margin-left: 24px; }
+.hero { padding: 72px 0 56px; text-align: center; }
+.hero h1 { font-size: 40px; font-weight: 700; margin: 0 0 16px; line-height: 1.2; }
+.hero p.sub { font-size: 17px; color: #6B7280; max-width: 560px; margin: 0 auto 32px; line-height: 1.6; }
+.cta-row { display: flex; gap: 12px; justify-content: center; }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 24px; border-radius: 8px; font-size: 15px; font-weight: 500; text-decoration: none; }
+.btn-primary { background: #0F6E56; color: white; }
+.btn-secondary { border: 1px solid #E5E7EB; color: #18181B; }
+.roles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; padding: 40px 0 64px; }
+.role-card { border: 0.5px solid #E5E7EB; border-radius: 14px; padding: 28px 22px; text-align: left; }
+.role-card .icon { width: 44px; height: 44px; border-radius: 12px; display:flex; align-items:center; justify-content:center; margin-bottom: 16px; }
+.role-card h3 { font-size: 16px; font-weight: 600; margin: 0 0 8px; }
+.role-card p { font-size: 14px; color: #6B7280; line-height: 1.6; margin: 0 0 16px; }
+.role-card a { font-size: 14px; color: #0F6E56; font-weight: 500; text-decoration: none; }
+.section { padding: 48px 0; border-top: 0.5px solid #E5E7EB; }
+.section h2 { font-size: 24px; font-weight: 600; margin: 0 0 12px; text-align: center; }
+.section p.center { text-align: center; color: #6B7280; max-width: 600px; margin: 0 auto 32px; line-height: 1.6; }
+.features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.feature { text-align: center; }
+.feature i { font-size: 26px; color: #0F6E56; margin-bottom: 12px; }
+.feature h4 { font-size: 15px; font-weight: 600; margin: 8px 0 6px; }
+.feature p { font-size: 13px; color: #6B7280; line-height: 1.5; margin: 0; }
+footer { padding: 32px 0; border-top: 0.5px solid #E5E7EB; text-align: center; color: #9CA3AF; font-size: 13px; }
+@media (max-width: 700px) {
+  .roles, .features { grid-template-columns: 1fr; }
+  .hero h1 { font-size: 30px; }
+  nav a { margin-left: 14px; }
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+<header>
+<div class="brand">
+<div class="icon"><i class="ti ti-list-details" aria-hidden="true"></i></div>
+Smart Queue
+</div>
+<nav>
+<a href="#roles">Roles</a>
+<a href="#features">Features</a>
+<a href="00-role-selection.html">Launch app</a>
+</nav>
+</header>
+
+<section class="hero">
+<h1>Skip the line.<br>Join the queue from anywhere.</h1>
+<p class="sub">Smart Queue is a digital queue management platform. Organizations like hospitals, banks, and salons manage their queues online — and people join and track them remotely, without standing in a physical line.</p>
+<div class="cta-row">
+<a href="00-role-selection.html" class="btn btn-primary"><i class="ti ti-player-play" aria-hidden="true"></i>Launch the app</a>
+<a href="#roles" class="btn btn-secondary">See how it works</a>
+</div>
+</section>
+
+<section class="roles" id="roles">
+
+<div class="role-card">
+<div class="icon" style="background:#E1F5EE;"><i class="ti ti-user" style="color:#085041; font-size:22px;" aria-hidden="true"></i></div>
+<h3>For users</h3>
+<p>Search for an organization, join its queue remotely, and get a digital token with live position and wait time.</p>
+<a href="03-user-login.html">Continue as user <i class="ti ti-arrow-right" aria-hidden="true"></i></a>
+</div>
+
+<div class="role-card">
+<div class="icon" style="background:#FAEEDA;"><i class="ti ti-building" style="color:#854F0B; font-size:22px;" aria-hidden="true"></i></div>
+<h3>For organizations</h3>
+<p>Manage your own queue, view and skip tokens, and keep your organization profile up to date.</p>
+<a href="02-organization-login.html">Continue as organization <i class="ti ti-arrow-right" aria-hidden="true"></i></a>
+</div>
+
+<div class="role-card">
+<div class="icon" style="background:#E6F1FB;"><i class="ti ti-shield-lock" style="color:#0C447C; font-size:22px;" aria-hidden="true"></i></div>
+<h3>For admins</h3>
+<p>Manage every organization on the platform — register new ones, remove inactive ones, and monitor activity.</p>
+<a href="01-admin-login.html">Continue as admin <i class="ti ti-arrow-right" aria-hidden="true"></i></a>
+</div>
+
+</section>
+
+<section class="section" id="features">
+<h2>One platform, three roles</h2>
+<p class="center">Same design system, same login flow — the dashboard and available actions simply change based on who's signed in.</p>
+<div class="features">
+<div class="feature">
+<i class="ti ti-ticket" aria-hidden="true"></i>
+<h4>Digital tokens</h4>
+<p>Join a queue remotely and get a live token number instead of standing in line.</p>
+</div>
+<div class="feature">
+<i class="ti ti-bell-ringing" aria-hidden="true"></i>
+<h4>Turn alerts</h4>
+<p>Get notified automatically when you're a few tokens away from being served.</p>
+</div>
+<div class="feature">
+<i class="ti ti-adjustments" aria-hidden="true"></i>
+<h4>Role-based access</h4>
+<p>Users, organizations, and admins each see only what's relevant to them.</p>
+</div>
+</div>
+</section>
+
+</div>
+
+<footer>
+Smart Queue - a queue management prototype.
+</footer>
+
+</body>
+</html>

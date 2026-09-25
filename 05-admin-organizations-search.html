@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Admin Organizations</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: #FFFFFF;
+    font-family: 'Inter', sans-serif;
+    color: #18181B;
+    display: flex;
+    justify-content: center;
+}
+
+.phone-card {
+    width: 100%;
+    max-width: 390px;
+    min-height: 100vh;
+    background: #FFFFFF;
+    border: 1px solid #E5E7EB;
+    border-radius: 14px;
+    padding: 24px;
+}
+
+p {
+    margin: 0;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.back {
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+    stroke: #18181B;
+    stroke-width: 2;
+    fill: none;
+    flex-shrink: 0;
+}
+
+.title {
+    font-size: 15px;
+    font-weight: 500;
+    flex: 1;
+}
+
+.add {
+    width: 21px;
+    height: 21px;
+    cursor: pointer;
+    stroke: #0F6E56;
+    stroke-width: 2;
+    fill: none;
+}
+
+.search-box {
+    position: relative;
+    margin-bottom: 18px;
+}
+
+.search-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 17px;
+    height: 17px;
+    stroke: #9CA3AF;
+    stroke-width: 2;
+    fill: none;
+}
+
+input {
+    width: 100%;
+    height: 42px;
+    border: 1px solid #E5E7EB;
+    border-radius: 8px;
+    padding: 0 12px 0 36px;
+    font-family: inherit;
+    font-size: 14px;
+    outline: none;
+    color: #18181B;
+}
+
+input:focus {
+    border-color: #0F6E56;
+}
+
+input::placeholder {
+    color: #9CA3AF;
+}
+
+.filters {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 18px;
+}
+
+.filter {
+    font-size: 12px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.filter.active {
+    background: #085041;
+    color: white;
+}
+
+.filter:not(.active) {
+    border: 1px solid #E5E7EB;
+    color: #6B7280;
+    background: white;
+}
+
+.count {
+    font-size: 13px;
+    color: #6B7280;
+    margin-bottom: 8px;
+}
+
+.organization-list {
+    border: 1px solid #E5E7EB;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.organization {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 13px 12px;
+    border-bottom: 1px solid #E5E7EB;
+    cursor: pointer;
+}
+
+.organization:last-child {
+    border-bottom: none;
+}
+
+.org-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 500;
+    flex-shrink: 0;
+}
+
+.cc {
+    background: #FAECE7;
+    color: #712B13;
+}
+
+.ub {
+    background: #E6F1FB;
+    color: #0C447C;
+}
+
+.as {
+    background: #FBEAF0;
+    color: #72243E;
+}
+
+.gc {
+    background: #F0F0F0;
+    color: #6B7280;
+}
+
+.org-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.org-name {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.org-type {
+    font-size: 12px;
+    color: #6B7280;
+    margin-top: 2px;
+}
+
+.status {
+    font-size: 11px;
+    padding: 3px 8px;
+    border-radius: 10px;
+    white-space: nowrap;
+}
+
+.status.active {
+    color: #0F6E56;
+    background: #E1F5EE;
+}
+
+.status.inactive {
+    color: #9CA3AF;
+    background: #F0F0F0;
+}
+</style>
+</head>
+
+<body>
+
+<div class="phone-card">
+
+    <!-- HEADER -->
+    <div class="header">
+
+        <svg class="back" id="backButton" viewBox="0 0 24 24">
+            <path d="M15 18l-6-6 6-6"></path>
+        </svg>
+
+        <p class="title">Organizations</p>
+
+        <svg class="add" id="addButton" viewBox="0 0 24 24">
+            <path d="M12 5v14"></path>
+            <path d="M5 12h14"></path>
+        </svg>
+
+    </div>
+
+
+    <!-- SEARCH -->
+    <div class="search-box">
+
+        <svg class="search-icon" viewBox="0 0 24 24">
+            <circle cx="11" cy="11" r="7"></circle>
+            <path d="M16 16l5 5"></path>
+        </svg>
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search organizations"
+        >
+
+    </div>
+
+
+    <!-- FILTERS -->
+    <div class="filters">
+
+        <span class="filter active" data-filter="all">
+            All
+        </span>
+
+        <span class="filter" data-filter="active">
+            Active
+        </span>
+
+        <span class="filter" data-filter="inactive">
+            Inactive
+        </span>
+
+    </div>
+
+
+    <p class="count" id="countText">
+        18 organizations
+    </p>
+
+
+    <!-- ORGANIZATIONS -->
+    <div class="organization-list">
+
+        <!-- CityCare -->
+        <div
+            class="organization"
+            data-status="active"
+            data-name="CityCare Hospital"
+            onclick="openOrganization('CityCare Hospital')"
+        >
+
+            <div class="org-avatar cc">
+                CC
+            </div>
+
+            <div class="org-info">
+                <p class="org-name">CityCare Hospital</p>
+                <p class="org-type">Healthcare</p>
+            </div>
+
+            <span class="status active">
+                Active
+            </span>
+
+        </div>
+
+
+        <!-- Union Bank -->
+        <div
+            class="organization"
+            data-status="active"
+            data-name="Union Bank"
+            onclick="openOrganization('Union Bank')"
+        >
+
+            <div class="org-avatar ub">
+                UB
+            </div>
+
+            <div class="org-info">
+                <p class="org-name">Union Bank</p>
+                <p class="org-type">Banking</p>
+            </div>
+
+            <span class="status active">
+                Active
+            </span>
+
+        </div>
+
+
+        <!-- ABC Salon -->
+        <div
+            class="organization"
+            data-status="active"
+            data-name="ABC Salon"
+            onclick="openOrganization('ABC Salon')"
+        >
+
+            <div class="org-avatar as">
+                AS
+            </div>
+
+            <div class="org-info">
+                <p class="org-name">ABC Salon</p>
+                <p class="org-type">Salon</p>
+            </div>
+
+            <span class="status active">
+                Active
+            </span>
+
+        </div>
+
+
+        <!-- Greenfield College -->
+        <div
+            class="organization"
+            data-status="inactive"
+            data-name="Greenfield College"
+            onclick="openOrganization('Greenfield College')"
+        >
+
+            <div class="org-avatar gc">
+                GC
+            </div>
+
+            <div class="org-info">
+                <p class="org-name">Greenfield College</p>
+                <p class="org-type">Education</p>
+            </div>
+
+            <span class="status inactive">
+                Inactive
+            </span>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+const searchInput = document.getElementById("searchInput");
+const organizations = document.querySelectorAll(".organization");
+const filters = document.querySelectorAll(".filter");
+const countText = document.getElementById("countText");
+
+let currentFilter = "all";
+
+
+function updateOrganizations() {
+
+    const search = searchInput.value.toLowerCase().trim();
+
+    let visibleCount = 0;
+
+    organizations.forEach(org => {
+
+        const name = org.dataset.name.toLowerCase();
+        const status = org.dataset.status;
+
+        const matchesSearch =
+            name.includes(search);
+
+        const matchesFilter =
+            currentFilter === "all" ||
+            status === currentFilter;
+
+        if (matchesSearch && matchesFilter) {
+
+            org.style.display = "flex";
+            visibleCount++;
+
+        } else {
+
+            org.style.display = "none";
+
+        }
+
+    });
+
+    /*
+       The original prototype displays
+       18 organizations.
+       The visible demo entries are the
+       organizations represented on this page.
+    */
+    if (search === "" && currentFilter === "all") {
+        countText.textContent = "18 organizations";
+    } else {
+        countText.textContent =
+            visibleCount + " organization" +
+            (visibleCount === 1 ? "" : "s");
+    }
+}
+
+
+searchInput.addEventListener("input", updateOrganizations);
+
+
+filters.forEach(filter => {
+
+    filter.addEventListener("click", function() {
+
+        filters.forEach(f =>
+            f.classList.remove("active")
+        );
+
+        this.classList.add("active");
+
+        currentFilter = this.dataset.filter;
+
+        updateOrganizations();
+
+    });
+
+});
+
+
+document.getElementById("backButton").onclick = function() {
+
+    window.location.href = "04-admin-dashboard.html";
+
+};
+
+
+document.getElementById("addButton").onclick = function() {
+
+    /*
+       No separate add-organization page exists
+       in the current prototype, so keep this
+       button ready for the future registration flow.
+    */
+
+    alert("Add organization flow can be connected here.");
+
+};
+
+
+function openOrganization(name) {
+
+    window.location.href =
+        "06-admin-organization-details.html";
+
+}
+
+</script>
+
+</body>
+</html>

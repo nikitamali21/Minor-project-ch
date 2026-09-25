@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Smart Queue - Role Selection</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: #FFFFFF;
+    font-family: 'Inter', sans-serif;
+    color: #18181B;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.phone-card {
+    width: 100%;
+    max-width: 390px;
+    min-height: 100vh;
+    background: #FFFFFF;
+    border-radius: 14px;
+    border: 1px solid #E5E7EB;
+    padding: 52px 24px 40px;
+}
+
+.logo-box {
+    width: 72px;
+    height: 72px;
+    border-radius: 18px;
+    background: #E1F5EE;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 30px;
+}
+
+.logo-box svg {
+    width: 36px;
+    height: 36px;
+    stroke: #085041;
+    stroke-width: 2;
+    fill: none;
+}
+
+h1 {
+    text-align: center;
+    margin: 0 0 6px;
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.subtitle {
+    text-align: center;
+    color: #6B7280;
+    font-size: 17px;
+    margin: 0 0 38px;
+}
+
+.role-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.role-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 18px 18px;
+    border: 1px solid #E5E7EB;
+    border-radius: 14px;
+    background: #FFFFFF;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.role-card:hover {
+    border-color: #D1D5DB;
+    transform: translateY(-1px);
+}
+
+.role-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.role-icon svg {
+    width: 28px;
+    height: 28px;
+    fill: none;
+    stroke-width: 2;
+}
+
+.user-icon {
+    background: #E1F5EE;
+}
+
+.user-icon svg {
+    stroke: #085041;
+}
+
+.org-icon {
+    background: #FAEEDA;
+}
+
+.org-icon svg {
+    stroke: #854F0B;
+}
+
+.admin-icon {
+    background: #E6F1FB;
+}
+
+.admin-icon svg {
+    stroke: #0C447C;
+}
+
+.role-content {
+    flex: 1;
+}
+
+.role-title {
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 3px;
+}
+
+.role-description {
+    font-size: 14px;
+    color: #6B7280;
+}
+
+.arrow {
+    width: 22px;
+    height: 22px;
+    stroke: #9CA3AF;
+    stroke-width: 2;
+    fill: none;
+    flex-shrink: 0;
+}
+
+@media (max-width: 390px) {
+    .phone-card {
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="phone-card">
+
+    <!-- Logo -->
+    <div class="logo-box">
+        <svg viewBox="0 0 24 24">
+            <rect x="3" y="4" width="5" height="5" rx="1"></rect>
+            <rect x="3" y="12" width="5" height="5" rx="1"></rect>
+            <path d="M12 6h9"></path>
+            <path d="M12 14h9"></path>
+            <path d="M12 10h6"></path>
+            <path d="M12 18h6"></path>
+        </svg>
+    </div>
+
+    <h1>Smart queue</h1>
+
+    <p class="subtitle">
+        How would you like to continue?
+    </p>
+
+    <div class="role-list">
+
+        <!-- USER -->
+        <div class="role-card" id="user-role">
+
+            <div class="role-icon user-icon">
+                <svg viewBox="0 0 24 24">
+                    <circle cx="12" cy="8" r="3.5"></circle>
+                    <path d="M5 20c0-4 3-6 7-6s7 2 7 6"></path>
+                </svg>
+            </div>
+
+            <div class="role-content">
+                <div class="role-title">I'm a user</div>
+                <div class="role-description">
+                    Join queues, skip the line
+                </div>
+            </div>
+
+            <svg class="arrow" viewBox="0 0 24 24">
+                <path d="M9 6l6 6-6 6"></path>
+            </svg>
+
+        </div>
+
+
+        <!-- ORGANIZATION -->
+        <div class="role-card" id="organization-role">
+
+            <div class="role-icon org-icon">
+                <svg viewBox="0 0 24 24">
+                    <path d="M4 21V5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v16"></path>
+                    <path d="M8 7h2"></path>
+                    <path d="M14 7h2"></path>
+                    <path d="M8 11h2"></path>
+                    <path d="M14 11h2"></path>
+                    <path d="M8 15h2"></path>
+                    <path d="M14 15h2"></path>
+                    <path d="M10 21v-3h4v3"></path>
+                </svg>
+            </div>
+
+            <div class="role-content">
+                <div class="role-title">I'm an organization</div>
+                <div class="role-description">
+                    Manage your queue
+                </div>
+            </div>
+
+            <svg class="arrow" viewBox="0 0 24 24">
+                <path d="M9 6l6 6-6 6"></path>
+            </svg>
+
+        </div>
+
+
+        <!-- ADMIN -->
+        <div class="role-card" id="admin-role">
+
+            <div class="role-icon admin-icon">
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z"></path>
+                    <path d="M9 12l2 2 4-4"></path>
+                </svg>
+            </div>
+
+            <div class="role-content">
+                <div class="role-title">I'm an admin</div>
+                <div class="role-description">
+                    Manage the platform
+                </div>
+            </div>
+
+            <svg class="arrow" viewBox="0 0 24 24">
+                <path d="M9 6l6 6-6 6"></path>
+            </svg>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+document.getElementById("user-role").onclick = function() {
+    window.location.href = "03-user-login.html";
+};
+
+document.getElementById("organization-role").onclick = function() {
+    window.location.href = "02-organization-login.html";
+};
+
+document.getElementById("admin-role").onclick = function() {
+    window.location.href = "01-admin-login.html";
+};
+</script>
+
+</body>
+</html>

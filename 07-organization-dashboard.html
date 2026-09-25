@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Organization Dashboard - CityCare Hospital</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 20px 12px;
+  background: #EDEDED;
+  font-family: 'Inter', sans-serif;
+  color: #18181B;
+  -webkit-font-smoothing: antialiased;
+}
+
+.phone-card {
+  width: 100%;
+  max-width: 390px;
+  min-height: 100vh;
+}
+
+h1, h2, h3, p {
+  margin: 0;
+}
+
+h2 {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.icon-svg {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+
+.manage-row {
+  transition: background 0.15s ease;
+}
+
+.manage-row:hover {
+  background: #FAFAFA;
+}
+</style>
+</head>
+
+<body>
+
+<div class="phone-card">
+
+  <div style="
+    background:#FFFFFF;
+    border-radius:14px;
+    padding:20px;
+    border:0.5px solid #E5E7EB;
+  ">
+
+    <!-- Header -->
+    <div style="
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      margin-bottom:24px;
+    ">
+
+      <div style="
+        display:flex;
+        align-items:center;
+        gap:10px;
+      ">
+
+        <div style="
+          width:36px;
+          height:36px;
+          border-radius:10px;
+          background:#FAECE7;
+          display:flex;
+          align-items:center;
+          justify-content:center;
+          font-size:13px;
+          font-weight:500;
+          color:#712B13;
+        ">
+          CC
+        </div>
+
+        <div>
+          <p style="
+            font-size:15px;
+            font-weight:500;
+          ">
+            CityCare Hospital
+          </p>
+
+          <p style="
+            font-size:12px;
+            color:#6B7280;
+          ">
+            Organization
+          </p>
+        </div>
+
+      </div>
+
+      <div style="
+        display:flex;
+        align-items:center;
+        gap:14px;
+      ">
+
+        <!-- Notification -->
+        <button
+          id="notificationBtn"
+          aria-label="Notifications"
+          style="
+            position:relative;
+            width:24px;
+            height:24px;
+            padding:0;
+            border:0;
+            background:transparent;
+          "
+        >
+          <svg class="icon-svg" viewBox="0 0 24 24" fill="none"
+               stroke="#18181B" stroke-width="1.8"
+               stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"/>
+            <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+          </svg>
+
+          <span style="
+            position:absolute;
+            top:-2px;
+            right:-2px;
+            width:8px;
+            height:8px;
+            border-radius:50%;
+            background:#D85A30;
+          "></span>
+        </button>
+
+        <!-- Profile avatar -->
+        <button
+          id="profileAvatar"
+          aria-label="Organization profile"
+          style="
+            width:32px;
+            height:32px;
+            border-radius:50%;
+            border:0;
+            background:#F0F0F0;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            font-size:12px;
+            font-weight:500;
+            padding:0;
+          "
+        >
+          CC
+        </button>
+
+      </div>
+    </div>
+
+    <!-- Title -->
+    <h2 style="margin-bottom:4px;">
+      Today's queue
+    </h2>
+
+    <p style="
+      font-size:14px;
+      color:#6B7280;
+      margin-bottom:20px;
+    ">
+      Live status for your organization.
+    </p>
+
+    <!-- Current token -->
+    <div style="
+      background:#E1F5EE;
+      border-radius:12px;
+      padding:20px;
+      margin-bottom:24px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+    ">
+
+      <div>
+        <p style="
+          font-size:12px;
+          color:#0F6E56;
+          margin-bottom:4px;
+        ">
+          Now serving
+        </p>
+
+        <p style="
+          font-size:30px;
+          font-weight:500;
+          color:#04342C;
+        ">
+          Token 010
+        </p>
+      </div>
+
+      <button
+        id="nextBtn"
+        style="
+          background:#085041;
+          color:white;
+          border:none;
+          border-radius:8px;
+          height:36px;
+          font-size:13px;
+          font-weight:500;
+          padding:0 14px;
+          white-space:nowrap;
+        "
+      >
+        Next
+      </button>
+
+    </div>
+
+    <!-- Stats -->
+    <div style="
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:12px;
+      margin-bottom:24px;
+    ">
+
+      <div style="
+        background:#EDEDED;
+        border-radius:10px;
+        padding:16px;
+      ">
+        <p style="
+          font-size:13px;
+          color:#6B7280;
+          margin-bottom:4px;
+        ">
+          Waiting
+        </p>
+
+        <p style="
+          font-size:24px;
+          font-weight:500;
+        ">
+          14
+        </p>
+      </div>
+
+      <div style="
+        background:#EDEDED;
+        border-radius:10px;
+        padding:16px;
+      ">
+        <p style="
+          font-size:13px;
+          color:#6B7280;
+          margin-bottom:4px;
+        ">
+          Avg. wait
+        </p>
+
+        <p style="
+          font-size:24px;
+          font-weight:500;
+        ">
+          6 min
+        </p>
+      </div>
+
+    </div>
+
+    <!-- Manage -->
+    <p style="
+      font-size:13px;
+      color:#6B7280;
+      margin-bottom:8px;
+    ">
+      Manage
+    </p>
+
+    <div style="
+      border:0.5px solid #E5E7EB;
+      border-radius:10px;
+      overflow:hidden;
+      margin-bottom:24px;
+    ">
+
+      <!-- Today's queue -->
+      <div
+        class="manage-row"
+        id="queueRow"
+        style="
+          display:flex;
+          align-items:center;
+          gap:12px;
+          padding:12px;
+          border-bottom:0.5px solid #E5E7EB;
+          cursor:pointer;
+        "
+      >
+
+        <div style="
+          width:34px;
+          height:34px;
+          border-radius:8px;
+          background:#E1F5EE;
+          display:flex;
+          align-items:center;
+          justify-content:center;
+          flex-shrink:0;
+        ">
+          <svg class="icon-svg" viewBox="0 0 24 24" fill="none"
+               stroke="#085041" stroke-width="1.8"
+               stroke-linecap="round" stroke-linejoin="round">
+            <path d="M8 6h13"/>
+            <path d="M8 12h13"/>
+            <path d="M8 18h13"/>
+            <path d="M3 6h.01"/>
+            <path d="M3 12h.01"/>
+            <path d="M3 18h.01"/>
+          </svg>
+        </div>
+
+        <div style="flex:1;">
+          <p style="
+            font-size:14px;
+            font-weight:500;
+            margin-bottom:2px;
+          ">
+            Today's queue
+          </p>
+
+          <p style="
+            font-size:12px;
+            color:#6B7280;
+          ">
+            All tokens and users
+          </p>
+        </div>
+
+        <svg class="icon-svg" viewBox="0 0 24 24" fill="none"
+             stroke="#9CA3AF" stroke-width="1.8"
+             stroke-linecap="round" stroke-linejoin="round">
+          <path d="m9 18 6-6-6-6"/>
+        </svg>
+
+      </div>
+
+      <!-- Add user -->
+      <div
+        class="manage-row"
+        id="addUserRow"
+        style="
+          display:flex;
+          align-items:center;
+          gap:12px;
+          padding:12px;
+          border-bottom:0.5px solid #E5E7EB;
+          cursor:pointer;
+        "
+      >
+
+        <div style="
+          width:34px;
+          height:34px;
+          border-radius:8px;
+          background:#FAEEDA;
+          display:flex;
+          align-items:center;
+          justify-content:center;
+          flex-shrink:0;
+        ">
+          <svg class="icon-svg" viewBox="0 0 24 24" fill="none"
+               stroke="#854F0B" stroke-width="1.8"
+               stroke-linecap="round" stroke-linejoin="round">
+            <path d="M15 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+            <circle cx="8.5" cy="7" r="4"/>
+            <path d="M20 8v6"/>
+            <path d="M23 11h-6"/>
+          </svg>
+        </div>
+
+        <div style="flex:1;">
+          <p style="
+            font-size:14px;
+            font-weight:500;
+            margin-bottom:2px;
+          ">
+            Add user
+          </p>
+
+          <p style="
+            font-size:12px;
+            color:#6B7280;
+          ">
+            Generate a token manually
+          </p>
+        </div>
+
+        <svg class="icon-svg" viewBox="0 0 24 24" fill="none"
+             stroke="#9CA3AF" stroke-width="1.8"
+             stroke-linecap="round" stroke-linejoin="round">
+          <path d="m9 18 6-6-6-6"/>
+        </svg>
+
+      </div>
+
+      <!-- Profile -->
+      <div
+        class="manage-row"
+        id="profileRow"
+        style="
+          display:flex;
+          align-items:center;
+          gap:12px;
+          padding:12px;
+          cursor:pointer;
+        "
+      >
+
+        <div style="
+          width:34px;
+          height:34px;
+          border-radius:8px;
+          background:#F0F0F0;
+          display:flex;
+          align-items:center;
+          justify-content:center;
+          flex-shrink:0;
+        ">
+          <svg class="icon-svg" viewBox="0 0 24 24" fill="none"
+               stroke="#6B7280" stroke-width="1.8"
+               stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="8" r="4"/>
+            <path d="M4 21a8 8 0 0 1 16 0"/>
+          </svg>
+        </div>
+
+        <div style="flex:1;">
+          <p style="
+            font-size:14px;
+            font-weight:500;
+            margin-bottom:2px;
+          ">
+            Profile
+          </p>
+
+          <p style="
+            font-size:12px;
+            color:#6B7280;
+          ">
+            Organization details
+          </p>
+        </div>
+
+        <svg class="icon-svg" viewBox="0 0 24 24" fill="none"
+             stroke="#9CA3AF" stroke-width="1.8"
+             stroke-linecap="round" stroke-linejoin="round">
+          <path d="m9 18 6-6-6-6"/>
+        </svg>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+document.getElementById("notificationBtn").addEventListener("click", function () {
+  window.location.href = "18-organization-notifications.html";
+});
+
+document.getElementById("profileAvatar").addEventListener("click", function () {
+  window.location.href = "10-organization-profile.html";
+});
+
+document.getElementById("queueRow").addEventListener("click", function () {
+  window.location.href = "08-organization-todays-queue.html";
+});
+
+document.getElementById("addUserRow").addEventListener("click", function () {
+  alert("Add user flow can be connected here.");
+});
+
+document.getElementById("profileRow").addEventListener("click", function () {
+  window.location.href = "10-organization-profile.html";
+});
+
+document.getElementById("nextBtn").addEventListener("click", function () {
+  window.location.href = "08-organization-todays-queue.html";
+});
+</script>
+
+</body>
+</html>
